@@ -20,7 +20,11 @@ In this section, we will go over 'What type annotation is' and 'How they are use
 
 - Good practice - rely on **Type Inference** if you can.
 
-- When should we explicitly set **Type Annotations**?
+- When should we explicitly set **Type Annotations** on variables?
   - Function that returns the `any` type.
   - Declare variable but initialize it later.
   - Variables which TypeScript can't automatically make inference of.
+
+- When should we explicitly set **Type Annotations** on Functions?
+  - Parameters.
+  - Return types.
