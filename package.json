@@ -1,0 +1,26 @@
+{
+  "name": "learn-typescript",
+  "version": "1.0.0",
+  "description": "🏅Let's learn about typescript and why we should use it!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawnkoon/learn-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shawnkoon/learn-typescript/issues"
+  },
+  "homepage": "https://github.com/shawnkoon/learn-typescript#readme",
+  "dependencies": {
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "ts-node": "^8.3.0"
+  }
+}
