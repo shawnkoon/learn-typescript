@@ -7,6 +7,7 @@
 0. [About TypeScript](00-about-typescript)
 1. [Type Annotations](01-type-annotations)
 2. [Class & Interfaces](02-classes-interfaces)
+3. [Design Pattern (Geo Caching App)](03-design-pattern-beg)
 
 ## Run 💻
 
