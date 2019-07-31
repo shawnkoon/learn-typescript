@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "description": "🏅Let's learn about typescript and why we should use it!",
   "main": "index.js",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "parcel-bundler": "^1.12.3",
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "ts-node": "^8.3.0"
+  },
   "scripts": {
+    "lesson3": "parcel ./03-design-pattern-beg/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,11 +25,5 @@
   "bugs": {
     "url": "https://github.com/shawnkoon/learn-typescript/issues"
   },
-  "homepage": "https://github.com/shawnkoon/learn-typescript#readme",
-  "dependencies": {
-    "typescript": "^3.5.3"
-  },
-  "devDependencies": {
-    "ts-node": "^8.3.0"
-  }
+  "homepage": "https://github.com/shawnkoon/learn-typescript#readme"
 }
