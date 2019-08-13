@@ -4,7 +4,7 @@
   "description": "🏅Let's learn about typescript and why we should use it!",
   "main": "index.js",
   "scripts": {
-    "lesson4": "echo \"Starting Lesson 4...\" && parcel 04-web-framework/index.html",
+    "lesson4": "echo \"Starting Lesson 4...\n\" && concurrently \"parcel 04-web-framework/index.html\" \"json-server 04-web-framework/db.json\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,10 +19,13 @@
   },
   "homepage": "https://github.com/shawnkoon/learn-typescript#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "typescript": "^3.5.3"
   },
   "devDependencies": {
     "@types/node": "^12.7.1",
+    "concurrently": "^4.1.1",
+    "json-server": "^0.15.0",
     "parcel-bundler": "^1.12.3",
     "ts-node": "^8.3.0"
   }

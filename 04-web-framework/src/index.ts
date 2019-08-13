@@ -1,4 +1,5 @@
 import { Item } from './models/Item';
+import axios from 'axios';
 
 const item = new Item({ name: 'laptop', price: 123 });
 
@@ -16,3 +17,8 @@ item.on('save', () => console.log('Save #1'));
 
 console.log(item);
 item.trigger('click');
+
+axios.post('http://localhost:3000/items', {
+  name: item.get('name'),
+  price: item.get('price'),
+});
