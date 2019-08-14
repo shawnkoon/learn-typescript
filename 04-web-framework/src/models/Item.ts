@@ -1,14 +1,15 @@
+// Lib
+import axios, { AxiosResponse } from 'axios';
+import { Eventing } from './Eventing';
+
 export interface ItemProps {
+  id?: number;
   name?: string;
   price?: number;
 }
 
-type Callback = () => void;
-
 export class Item {
-  private events: { [key: string]: Callback[] } = {};
-
-  constructor(private data: ItemProps) {}
+  constructor(private data: ItemProps, public events: Eventing = new Eventing()) {}
 
   get(propName: string): string | number {
     return this.data[propName];
@@ -18,23 +19,23 @@ export class Item {
     Object.assign(this.data, update);
   }
 
-  on(eventName: string, callback: Callback) {
-    if (this.events[eventName]) {
-      this.events[eventName].push(callback);
-    } else {
-      this.events[eventName] = [callback];
-    }
+  fetch(): void {
+    axios.get(`http://localhost:3000/items/${this.get('id')}`).then(
+      (response: AxiosResponse): void => {
+        this.set(response.data);
+      }
+    );
   }
 
-  trigger(eventName: string): void {
-    const handlers = this.events[eventName];
+  save(): void {
+    const id = this.get('id');
 
-    if (!handlers || handlers.length === 0) {
-      return;
+    if (id) {
+      // put
+      axios.put(`http://localhost:3000/items/${id}`, this.data);
+    } else {
+      // post
+      axios.post(`http://localhost:3000/items`, this.data);
     }
-
-    handlers.forEach(callback => {
-      callback();
-    });
   }
 }

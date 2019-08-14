@@ -1,24 +1,25 @@
 import { Item } from './models/Item';
-import axios from 'axios';
 
-const item = new Item({ name: 'laptop', price: 123 });
+/**
+ * GET & PUT
+ */
+const item = new Item({ id: 1 });
 
-console.log(item.get('name'));
-console.log(item.get('price'));
+item.fetch();
+item.set({ name: 'Air Filter', price: 17.85 });
+item.save(); // PUT
 
-item.set({ name: 'bike', price: 999 });
+/**
+ * POST
+ */
+const item2 = new Item({ name: 'Bullet proof backpack', price: 45.23 });
+item2.save(); // POST
 
-console.log(item.get('name'));
-console.log(item.get('price'));
-
-item.on('click', () => console.log('Click #1'));
-item.on('click', () => console.log('Click #2'));
-item.on('save', () => console.log('Save #1'));
-
-console.log(item);
-item.trigger('click');
-
-axios.post('http://localhost:3000/items', {
-  name: item.get('name'),
-  price: item.get('price'),
+/**
+ * Eventing delegation
+ */
+item2.events.on('click', () => {
+  console.log('I am Click Event!');
 });
+
+item2.events.trigger('click');

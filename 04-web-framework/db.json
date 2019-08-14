@@ -1,9 +1,14 @@
 {
   "items": [
     {
-      "name": "bike",
-      "price": 999,
-      "id": 1
+      "id": 1,
+      "name": "Air Filter",
+      "price": 17.85
+    },
+    {
+      "name": "Bullet proof backpack",
+      "price": 45.23,
+      "id": 2
     }
   ]
 }
