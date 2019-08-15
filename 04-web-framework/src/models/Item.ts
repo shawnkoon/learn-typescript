@@ -1,6 +1,7 @@
 // Lib
-import axios, { AxiosResponse } from 'axios';
 import { Eventing } from './Eventing';
+import { Database } from './Database';
+import { Attributes } from './Attributes';
 
 export interface ItemProps {
   id?: number;
@@ -9,33 +10,27 @@ export interface ItemProps {
 }
 
 export class Item {
-  constructor(private data: ItemProps, public events: Eventing = new Eventing()) {}
+  public attributes: Attributes<ItemProps>;
 
-  get(propName: string): string | number {
-    return this.data[propName];
+  constructor(
+    attributes: ItemProps,
+    public events: Eventing = new Eventing(),
+    public db: Database<ItemProps> = new Database<ItemProps>(
+      'http://localhost:3000/items'
+    )
+  ) {
+    this.attributes = new Attributes<ItemProps>(attributes);
   }
 
-  set(update: ItemProps): void {
-    Object.assign(this.data, update);
+  get on() {
+    return this.events.on;
   }
 
-  fetch(): void {
-    axios.get(`http://localhost:3000/items/${this.get('id')}`).then(
-      (response: AxiosResponse): void => {
-        this.set(response.data);
-      }
-    );
+  get trigger() {
+    return this.events.trigger;
   }
 
-  save(): void {
-    const id = this.get('id');
-
-    if (id) {
-      // put
-      axios.put(`http://localhost:3000/items/${id}`, this.data);
-    } else {
-      // post
-      axios.post(`http://localhost:3000/items`, this.data);
-    }
+  get get() {
+    return this.attributes.get;
   }
 }
