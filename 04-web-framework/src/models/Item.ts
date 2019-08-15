@@ -1,7 +1,8 @@
 // Lib
+import { Model } from './Model';
+import { Attributes } from './Attributes';
 import { Eventing } from './Eventing';
 import { Database } from './Database';
-import { Attributes } from './Attributes';
 
 export interface ItemProps {
   id?: number;
@@ -9,28 +10,16 @@ export interface ItemProps {
   price?: number;
 }
 
-export class Item {
-  public attributes: Attributes<ItemProps>;
-
-  constructor(
-    attributes: ItemProps,
-    public events: Eventing = new Eventing(),
-    public db: Database<ItemProps> = new Database<ItemProps>(
-      'http://localhost:3000/items'
-    )
-  ) {
-    this.attributes = new Attributes<ItemProps>(attributes);
+export class Item extends Model<ItemProps> {
+  static buildItem(attrs: ItemProps): Item {
+    return new Item(
+      new Attributes<ItemProps>(attrs),
+      new Database<ItemProps>('http://localhost:3000/items'),
+      new Eventing()
+    );
   }
 
-  get on() {
-    return this.events.on;
-  }
-
-  get trigger() {
-    return this.events.trigger;
-  }
-
-  get get() {
-    return this.attributes.get;
+  isExpensive(): boolean {
+    return this.get('price') > 100;
   }
 }
