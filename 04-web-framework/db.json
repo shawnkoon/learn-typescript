@@ -9,6 +9,16 @@
       "name": "Bullet proof backpack",
       "price": 45.23,
       "id": 2
+    },
+    {
+      "name": "Fan",
+      "price": 405.75,
+      "id": 3
+    },
+    {
+      "name": "Mouse",
+      "price": 7.59,
+      "id": 4
     }
   ]
 }

@@ -22,11 +22,22 @@ export class Item extends Model<ItemProps> {
     );
   }
 
-  isExpensive(): boolean {
-    return this.get('price') > 100;
-  }
-
   static buildItemCollection(): Collection<Item, ItemProps> {
     return new Collection<Item, ItemProps>(Item.baseUrl, Item.buildItem);
+  }
+
+  isExpensive(): boolean {
+    const price = this.get('price');
+
+    if (price) {
+      return price > 100;
+    }
+
+    throw new Error('Price is not a number.');
+  }
+
+  setRandomPrice(): void {
+    const price = Number(Number(Math.random() * 500).toFixed(2));
+    this.set({ price });
   }
 }

@@ -1,38 +1,19 @@
+import { ItemContainer } from './views/ItemContainer';
 import { Item } from './models/Item';
 
-/**
- * Item Related.
- */
-const item = Item.buildItem({ id: 1, name: 'shawnkoon gift', price: 123.45 });
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.getElementById('root');
 
-console.log('id:', item.get('id'));
+  if (root) {
+    const container = new ItemContainer(
+      root,
+      Item.buildItem({ name: 'Fan', price: 12.3 })
+    );
 
-item.on('change', () => {
-  console.log('Item Updated', item);
+    container.render();
+
+    console.log('container', container);
+  } else {
+    throw new Error('Root element is not present.');
+  }
 });
-
-item.on('save', () => {
-  console.log('Item Saved', item);
-});
-
-item.on('click', () => {
-  console.log('Click Event Triggered!!');
-});
-
-item.trigger('click'); // shouldn't do anything.
-
-item.save();
-item.fetch();
-
-console.log('Is this item expensive?', item.isExpensive());
-
-/**
- * Item Collection related.
- */
-const items = Item.buildItemCollection();
-
-items.on('fetch', () => {
-  console.log('Fetched items', items);
-});
-
-items.fetch();
