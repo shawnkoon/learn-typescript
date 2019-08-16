@@ -6,4 +6,5 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 [{*.json,*.yml,*.ts,*.tsx,*.md}]
+indent_size = 2
 indent_style = space
