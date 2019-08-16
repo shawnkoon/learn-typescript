@@ -1,7 +1,7 @@
 import { Item } from './models/Item';
 
 /**
- * GET & PUT
+ * Item Related.
  */
 const item = Item.buildItem({ id: 1, name: 'shawnkoon gift', price: 123.45 });
 
@@ -25,3 +25,14 @@ item.save();
 item.fetch();
 
 console.log('Is this item expensive?', item.isExpensive());
+
+/**
+ * Item Collection related.
+ */
+const items = Item.buildItemCollection();
+
+items.on('fetch', () => {
+  console.log('Fetched items', items);
+});
+
+items.fetch();
