@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lesson4": "echo \"Starting Lesson 4...\n\" && concurrently \"parcel 04-web-framework/index.html\" \"json-server 04-web-framework/db.json\"",
+    "lesson5": "echo \"Starting Lesson 5...\n\" && tsc --build ./05-express-api/tsconfig.json && concurrently --names \"nodemon,tsc\" -c \"bgBlue.bold,bgMagenta.bold\" \"nodemon ./05-express-api/build/index.js\" \"tsc --build ./05-express-api/tsconfig.json -w\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,12 +21,19 @@
   "homepage": "https://github.com/shawnkoon/learn-typescript#readme",
   "dependencies": {
     "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.3.3",
+    "express": "^4.17.1",
     "typescript": "^3.5.3"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.17.1",
+    "@types/cookie-session": "^2.0.37",
+    "@types/express": "^4.17.1",
     "@types/node": "^12.7.1",
     "concurrently": "^4.1.1",
     "json-server": "^0.15.0",
+    "nodemon": "^1.19.1",
     "parcel-bundler": "^1.12.3",
     "ts-node": "^8.3.0"
   }
