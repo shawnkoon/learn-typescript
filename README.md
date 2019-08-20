@@ -10,6 +10,7 @@
 1. [TBD](.)
 1. [Web Framework (Auction App)](04-web-framework)
 1. [Express API](05-express-api)
+1. [Decorators](06-decorators)
 
 ## Run 💻
 
