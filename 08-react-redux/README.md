@@ -1,44 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Lesson 8 - React, Redux, and TypeScript
 
-## Available Scripts
+This lesson, we are going to learning about how to integrate `TypeScript` in your `React` and `Redux` application. In order to do so, we are going to building small web application (Todo App) where we use public api to fetch list of Todo items, display them, and when user clicks on one it will remove that specific todo item.
 
-In the project directory, you can run:
+Basic application, but we can learn about the basics that are need to make this work.
 
-### `npm start`
+## How to Execute 💻
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Install package dpendencies.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+    ```bash
 
-### `npm test`
+    $ npm install
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ...
+    ```
 
-### `npm run build`
+1. Execute following script.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+   $ npm run start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ...
+   ```
 
-### `npm run eject`
+1. Access the application via through `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Click on `Fetch` button to fetch list of todo items.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Click on **any todo item** to remove it from the list.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Key Takeaways 🎯
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Basic React/Redux/TypeScript integration.
+- How to use TypeGuard and enum to properly scope action types.
 
-## Learn More
+## Misc
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I had a bit of trouble wiring `Redux Thunk Type Action` into `mapDispatchToProps`. Originally used `dispatch: Dispatch` from `react-redux` library but it was struggling to understand that `fetchTodos()` was also **dispatchable action**.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Endedup going with `ThunkDispatch` to work around the type error message, but it is defintely something I need to re-visit.
