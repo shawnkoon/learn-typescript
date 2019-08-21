@@ -12,6 +12,7 @@
 1. [Express API](05-express-api)
 1. [Decorators](06-decorators)
 1. [Express API (Advanced)](07-express-api-advanced)
+1. [React/Redux (Todo App)](08-react-redux)
 
 ## Run 💻
 
