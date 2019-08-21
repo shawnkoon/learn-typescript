@@ -7,6 +7,7 @@
     "lesson4": "echo \"Starting Lesson 4...\n\" && concurrently \"parcel 04-web-framework/index.html\" \"json-server 04-web-framework/db.json\"",
     "lesson5": "echo \"Starting Lesson 5...\n\" && tsc --build ./05-express-api/tsconfig.json && concurrently --names \"nodemon,tsc\" -c \"bgBlue.bold,bgMagenta.bold\" \"nodemon ./05-express-api/build/index.js\" \"tsc --build ./05-express-api/tsconfig.json -w\"",
     "lesson6": "echo \"Starting Lesson 6...\n\" && tsc --build ./06-decorators/tsconfig.json && concurrently --names \"nodemon,tsc\" -c \"bgBlue.bold,bgMagenta.bold\" \"nodemon ./06-decorators/build/index.js\" \"tsc --build ./06-decorators/tsconfig.json -w\"",
+    "lesson7": "echo \"Starting Lesson 7...\n\" && tsc --build ./07-express-api-advanced/tsconfig.json && concurrently --names \"nodemon,tsc\" -c \"bgBlue.bold,bgMagenta.bold\" \"nodemon ./07-express-api-advanced/build/index.js\" \"tsc --build ./07-express-api-advanced/tsconfig.json -w\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +26,7 @@
     "body-parser": "^1.19.0",
     "cookie-session": "^1.3.3",
     "express": "^4.17.1",
+    "reflect-metadata": "^0.1.13",
     "typescript": "^3.5.3"
   },
   "devDependencies": {
