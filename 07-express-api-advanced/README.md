@@ -26,7 +26,23 @@ Compared to `lesson 05 - Basic Express Api`, API in this lesson will be using De
 
 1. Access the application via through `http://localhost:3000`.
 
+1. Try out different routes.
+    - `http://localhost:3000/` - Main page.
+    - `http://localhost:3000/auth/login` - LogIn page.
+    - `http://localhost:3000/auth/logout` - LogOut page.
+    - `http://localhost:3000/protected` - Protected page.
+      - Can only access this page when you are looged in.
+
 ## Key Takeaways 🎯
+
+- How to use Express with TypeScript.
+- How you can make TypeScript worth implementing.
+  - Q) What kind of benefits do you gain?
+- Implementation alike [ts-express-decorators](https://www.npmjs.com/package/ts-express-decorators) module.
+- Usage of [Reflect Metatadata](https://www.npmjs.com/package/reflect-metadata) module.
+- Custom validations/middlewares on REST API.
+- TypeScript Enums.
+- Singleton pattern for express Route object.
 
 ## Misc
 
